@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+*.egg
+
+# Environment variables
+.env
+
+# Docker
+*.log
+docker-compose.override.yml
+
+# VSCode
+.vscode/
+
+# IDEs
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# Pytest
+.cache
+.pytest_cache/
+
+# Local database files
+*.db
+*.sqlite3
+
+# FastAPI specific
+*.pyc
+
+venv/
+
+node_modules/
