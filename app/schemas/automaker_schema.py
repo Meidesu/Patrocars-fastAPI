@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 
 
-class Automaker(BaseModel):
+class AutomakerBase(BaseModel):
     """
     Automaker schema for representing an automaker entity.
 
@@ -15,3 +15,11 @@ class Automaker(BaseModel):
     nome: str
     pais: str
     ano_fundacao: int
+
+
+class AutomakerCreate(AutomakerBase):
+    pass
+
+
+class AutomakerGet(AutomakerBase):
+    id: int
