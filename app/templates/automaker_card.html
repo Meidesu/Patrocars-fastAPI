@@ -1,4 +1,7 @@
-<div class="flex flex-col p-6 bg-custom-card border-custom-ring border border-opacity-10 rounded-xl space-y-4">
+<div
+  onclick="window.location.href = '/automakers/edit/{{montadora.id}}'"
+  class="flex flex-col p-6 bg-custom-card border-custom-ring border border-opacity-10 rounded-xl space-y-4 hover:cursor-pointer"
+>
   <h2 class="text-2xl">{{ montadora.nome }}</h2>
   <div class="flex justify-between text-custom-muted-foreground">
     <p class="">{{ montadora.pais }}</p>

@@ -1,3 +1,4 @@
+from typing import Optional
 from pydantic import BaseModel
 
 
@@ -23,3 +24,9 @@ class AutomakerCreate(AutomakerBase):
 
 class AutomakerGet(AutomakerBase):
     id: int
+
+
+class AutomakerUpdate(BaseModel):
+    nome: Optional[str]
+    pais: Optional[str]
+    ano_fundacao: Optional[int]

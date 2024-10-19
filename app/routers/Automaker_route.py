@@ -61,5 +61,36 @@ def get_automakers(request: Request, db: Session = Depends(get_db)):
 
 
 @router.get("/automakers/create")
-def get_automaker(request: Request):
+def automaker_create_page(request: Request):
     return templates.TemplateResponse(name="automaker_create.html", request=request)
+
+
+@router.get("/automakers/edit/{automaker_id}")
+def automaker_edit_page(
+    automaker_id: int, request: Request, db: Session = Depends(get_db)
+):
+    automaker = automaker_crud.get_automaker(db=db, automaker_id=automaker_id)
+
+    return templates.TemplateResponse(
+        request=request, name="automaker_update.html", context={"automaker": automaker}
+    )
+
+
+@router.post("/automakers/{automaker_id}")
+def update_automaker(
+    automaker_id: int,
+    _input: Annotated[automaker_schema.AutomakerUpdate, Form()],
+    db: Session = Depends(get_db),
+):
+    new_automaker = automaker_schema.AutomakerUpdate(
+        nome=_input.nome, pais=_input.pais, ano_fundacao=_input.ano_fundacao
+    )
+
+    updated_automaker = automaker_crud.update_automaker(
+        automaker_id=automaker_id, db=db, automaker_update=new_automaker
+    )
+
+    if not updated_automaker:
+        return HTTPException(400, detail="Falha ao atualizar montadora")
+
+    return RedirectResponse(url="/automakers", status_code=303)

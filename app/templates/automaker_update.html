@@ -1,0 +1,85 @@
+{% extends "base.html" %} {% block nav %}
+<nav class="flex justify-between items-center py-4 px-6">
+  <button
+    onclick="window.location.href = document.referrer"
+    type="button"
+    class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+  >
+    < Voltar
+  </button>
+  <!-- TODO: Arrumar essa rota aqui -->
+  <button
+    onclick="window.location.href = '/automakers'"
+    type="button"
+    class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+  >
+    Lista de montadoras
+  </button>
+</nav>
+
+{% endblock %} {% block content %} {% if automaker == None %}
+<div class="flex flex-col text-2xl max-w-md mx-auto">
+  <p class="py-5 mx-auto">Montadora não encontrada!!</p>
+</div>
+{% else %}
+<form
+  action="/automakers/{{automaker.id}}"
+  method="post"
+  class="flex flex-col max-w-md mx-auto"
+>
+  <div class="mb-5">
+    <label
+      for="nome"
+      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      >Nome</label
+    >
+    <input
+      type="text"
+      id="nome"
+      name="nome"
+      class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+      placeholder="BYD, Fiat..."
+      value="{{automaker.nome}}"
+      required
+    />
+  </div>
+  <div class="mb-5">
+    <label
+      for="pais"
+      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      >Pais de origem</label
+    >
+    <input
+      type="text"
+      id="pais"
+      name="pais"
+      class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+      required
+      placeholder="Brasil, USA, Japão..."
+      value="{{automaker.pais}}"
+    />
+  </div>
+  <div class="mb-5">
+    <label
+      for="ano_fundacao"
+      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      >Ano de fundação</label
+    >
+    <input
+      type="number"
+      id="ano_fundacao"
+      name="ano_fundacao"
+      class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+      required
+      placeholder="19XX"
+      value="{{automaker.ano_fundacao}}"
+    />
+  </div>
+  <button
+    type="submit"
+    class="max-w-min text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+  >
+    <span class="text-nowrap">Atualizar montadora</span>
+  </button>
+</form>
+{% endif %} {% endblock %}
