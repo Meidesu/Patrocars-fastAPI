@@ -12,26 +12,28 @@
   <body
     class="min-h-screen md:w-[80vw] m-auto px-5 bg-custom-background text-custom-foreground"
   >
-    <header
-      class="h-[8vh] flex justify-between items-center py-4 px-6 border-custom-muted-foreground border-b"
-    >
-      <h1 class="text-4xl cursor-pointer">
-        <a href="/"> Patrocars </a>
-        <!-- <a href="/"> {% block title %} Titulo padrão {% endblock %} </a> -->
-      </h1>
-      <nav>
-        <ul class="flex space-x-2">
-          <li class="hover:underline">
-            <a href="/">Home</a>
-          </li>
-          <li class="hover:underline">
-            <a href="/automakers">Montadoras</a>
-          </li>
-        </ul>
-      </nav>
+    <header class="fixed top-0 h-[10vh] w-[80vw] bg-custom-background">
+      <div
+        class="flex justify-between h-full items-center py-4 px-6 border-custom-muted-foreground border-b"
+      >
+        <h1 class="text-4xl cursor-pointer">
+          <a href="/"> Patrocars </a>
+          <!-- <a href="/"> {% block title %} Titulo padrão {% endblock %} </a> -->
+        </h1>
+        <nav>
+          <ul class="flex space-x-2">
+            <li class="hover:underline">
+              <a href="/">Home</a>
+            </li>
+            <li class="hover:underline">
+              <a href="/automakers">Montadoras</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      {% block nav %} {% endblock %}
     </header>
-    <main class="h-[90vh]">
-      {% block nav %} {% endblock %} 
+    <main class="pt-40 h-[90vh]">
       {% block content %}
       <div><p>Nada pra ver</p></div>
       {% endblock %}
