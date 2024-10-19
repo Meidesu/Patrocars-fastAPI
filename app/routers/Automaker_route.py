@@ -94,3 +94,13 @@ def update_automaker(
         return HTTPException(400, detail="Falha ao atualizar montadora")
 
     return RedirectResponse(url="/automakers", status_code=303)
+
+
+@router.post("/automakers/delete/{automaker_id}")
+def delete_automaker(automaker_id: int, db: Session = Depends(get_db)):
+    automaker = automaker_crud.delete_automaker(db=db, automaker_id=automaker_id)
+
+    if not automaker:
+        return HTTPException(400, detail="Falha ao deletar montadora")
+
+    return RedirectResponse(url="/automakers", status_code=303)

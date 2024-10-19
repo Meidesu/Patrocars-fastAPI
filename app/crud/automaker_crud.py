@@ -33,3 +33,16 @@ def update_automaker(db: Session, automaker_id: int, automaker_update: Automaker
         return db_montadora
 
     return None
+
+
+def delete_automaker(db: Session, automaker_id: int):
+    db_automaker = (
+        db.query(AutomakerModel).filter(AutomakerModel.id == automaker_id).first()
+    )
+
+    if db_automaker:
+        db.delete(db_automaker)
+        db.commit()
+        return db_automaker
+
+    return None
