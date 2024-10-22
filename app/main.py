@@ -3,7 +3,7 @@ from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.staticfiles import StaticFiles
 
 
-from app.routers import automaker_route
+from app.routers import Automaker_route
 from app.routers import vehicle_route
 
 from app.core.config import templates
@@ -14,7 +14,7 @@ app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
 app.add_middleware(GZipMiddleware)
 
-app.include_router(automaker_route.router)
+app.include_router(Automaker_route.router)
 app.include_router(vehicle_route.router)
 
 
