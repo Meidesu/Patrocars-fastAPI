@@ -5,6 +5,19 @@ from app.models.automaker_model import AutomakerModel
 
 
 class VehicleModel(Base):
+    """
+    VehicleModel represents the schema for the 'vehicle' table in the database.
+    Attributes:
+        id (int): Primary key for the vehicle.
+        nome (str): Name of the vehicle.
+        valor_referencia (float): Reference value of the vehicle.
+        motorizacao (int): Engine capacity of the vehicle.
+        turbo (bool): Indicates if the vehicle has a turbo engine.
+        automatico (bool): Indicates if the vehicle has an automatic transmission.
+        montadora_id (int): Foreign key referencing the automaker.
+        automaker (AutomakerModel): Relationship to the AutomakerModel, representing the automaker of the vehicle.
+    """
+
     __tablename__ = "vehicle"
 
     id = Column(Integer, primary_key=True, index=True)

@@ -1,0 +1,104 @@
+{% extends "base.html" %} {% block nav %}
+<nav class="flex justify-between items-center py-4 px-6">
+  <button
+    onclick="window.location.href = document.referrer"
+    type="button"
+    class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+  >
+    < Voltar
+  </button>
+  <button
+    onclick="window.location.href = '/veiculos'"
+    type="button"
+    class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+  >
+    Lista de veiculos
+  </button>
+</nav>
+
+{% endblock %} {% block content %}
+<form action="/veiculos" method="post" class="flex flex-col max-w-md mx-auto">
+  <div class="mb-5">
+    <label
+      for="nome"
+      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      >Nome</label
+    >
+    <input
+      type="text"
+      id="nome"
+      name="nome"
+      class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+      placeholder="Celta, fusca..."
+      required
+    />
+  </div>
+  <div class="mb-5">
+    <label
+      for="valor_referencia"
+      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      >Valor</label
+    >
+    <input
+      type="number"
+      id="valor_referencia"
+      name="valor_referencia"
+      class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+      required
+      placeholder="R$"
+    />
+  </div>
+  <div class="mb-5">
+    <label
+      for="motorizacao"
+      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      >Motorização</label
+    >
+    <input
+      type="number"
+      id="motorizacao"
+      name="motorizacao"
+      class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+      placeholder=""
+      required
+    />
+  </div>
+  <div class="flex items-start mb-5">
+    <div class="flex items-center h-5">
+      <input
+        id="turbo"
+        name="turbo"
+        type="checkbox"
+        class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
+      />
+    </div>
+    <label
+      for="turbo"
+      class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+      >Turbo</label
+    >
+  </div>
+  <div class="flex items-start mb-5">
+    <div class="flex items-center h-5">
+      <input
+        id="automatico"
+        name="automatico"
+        type="checkbox"
+        class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
+      />
+    </div>
+    <label
+      for="automatico"
+      class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+      >Automatico</label
+    >
+  </div>
+  <input name="montadora_id" class="hidden" value="1" type="number" />
+  <button
+    type="submit"
+    class="max-w-min text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+  >
+    <span class="text-nowrap">Registrar veiculo</span>
+  </button>
+</form>
+{% endblock %}

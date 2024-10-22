@@ -7,27 +7,29 @@
   >
     < Voltar
   </button>
-  <!-- TODO: Arrumar essa rota aqui -->
   <button
-    onclick="window.location.href = '/automakers/create'"
+    onclick="window.location.href = '/veiculos/criar'"
     type="button"
     class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
   >
-    Nova montadora
+    Novo veiculo
   </button>
 </nav>
 {% endblock %} {% block content %}
 <div class="flex flex-col w-1/2 mx-auto py-8 space-y-2">
-  {% if montadoras | length > 0 %}
 
-    {% for montadora in montadoras%} 
-      {%include "automaker_card.html" with context%} 
-      
-    {% endfor %}
+  {% if vehicles | length > 0 %}
+    {% for vehicle in vehicles%} 
+      {% include "vehicle_card.html" with context %} 
+    {%endfor %}
+  
   {% else %}
+
     <div class="flex flex-col text-2xl max-w-md mx-auto">
-      <p class="py-5 mx-auto">Nenhuma montadora cadastrada!!</p>
+      <p class="py-5 mx-auto">Nenhum veiculo cadastrado!!</p>
     </div>
+
   {% endif %}
+
 </div>
 {% endblock %}

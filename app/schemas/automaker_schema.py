@@ -22,7 +22,7 @@ class AutomakerCreate(AutomakerBase):
     pass
 
 
-class AutomakerGet(AutomakerBase):
+class AutomakerResponse(AutomakerBase):
     id: int
 
 

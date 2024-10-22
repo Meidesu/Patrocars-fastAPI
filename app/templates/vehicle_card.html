@@ -2,14 +2,17 @@
   class="flex flex-col p-6 bg-custom-card border-custom-ring border border-opacity-10 rounded-xl space-y-4"
 >
   <div class="flex justify-between">
-    <h2 class="text-2xl">{{ montadora.nome }}</h2>
+    <h2 class="text-2xl">{{ vehicle.nome }}</h2>
     <div class="flex space-x-2">
-      {% include "icons/pen.html" with context %} {% include "icons/trash.html"
-      with context %}
+      {# {% include "icons/pen.html" with context %} {% include
+      "icons/trash.html" with context %} #}
     </div>
   </div>
   <div class="flex justify-between text-custom-muted-foreground">
-    <p>{{ montadora.pais }}</p>
-    <p>{{montadora.ano_fundacao}}</p>
+    {#
+    <p>{{ vehicle.pais }}</p>
+    #} {#
+    <p>{{vehicle.montadora.nome}}</p>
+    #}
   </div>
 </div>
